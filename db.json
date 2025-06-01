@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "id": "1",
+      "firstName": "Анна",
+      "lastName": "Смирнова",
+      "email": "anna.smirnova@example.com",
+      "phone": "+79123456789",
+      "birthDate": "1995-03-15"
+    },
+    {
+      "id": "2",
+      "firstName": "Дмитрий",
+      "lastName": "Иванов",
+      "email": "d.ivanov@example.com",
+      "phone": "+79234567890",
+      "birthDate": "1988-07-22"
+    },
+    {
+      "id": "7",
+      "firstName": "Мария",
+      "lastName": "Волкова",
+      "email": "m.volkova@example.com",
+      "phone": "+79789012345",
+      "birthDate": "1994-04-05"
+    },
+    {
+      "id": "8",
+      "firstName": "Сергей",
+      "lastName": "Соколов",
+      "email": "s.sokolov@example.com",
+      "phone": "+79890123456",
+      "birthDate": "1991-08-14"
+    },
+    {
+      "id": "9",
+      "firstName": "Наталья",
+      "lastName": "Лебедева",
+      "email": "n.lebedeva@example.com",
+      "phone": "+79901234567",
+      "birthDate": "1989-02-28"
+    },
+    {
+      "id": "10",
+      "firstName": "Павел",
+      "lastName": "Кузнецов",
+      "email": "p.kuznetsov@example.com",
+      "phone": "+79012345678",
+      "birthDate": "1996-06-20"
+    }
+  ]
+}
