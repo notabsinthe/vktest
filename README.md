@@ -1,54 +1,66 @@
-# React + TypeScript + Vite
+# Тестовое задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение -- форма для сабмита персональных данных.
 
-Currently, two official plugins are available:
+### UI Библиотека -- Mantine UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Mantine](https://mantine.dev/) был выбран как основной UI framework по следующим причинам:
+- Полная поддержка TypeScript из коробки
+- Богатая экосистема компонентов (@mantine/core, @mantine/dates, @mantine/form)
+- Встроенная поддержка тем и адаптивного дизайна
+- Современный дизайн компонентов с поддержкой accessibility
 
-## Expanding the ESLint configuration
+### Управление формами -- React Hook Form + Zod
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[React Hook Form](https://react-hook-form.com/) используется для управления состоянием формы:
+- Минимальное количество перерендеров
+- Производительная валидация
+- Простая интеграция с TypeScript
+- Гибкая система валидации
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+[Zod](https://zod.dev/) для валидации:
+- Типобезопасная валидация
+- Автоматическая генерация TypeScript типов
+- Простой и декларативный синтаксис
+
+### Стейт-менеджмент -- Zustand
+
+[Zustand](https://zustand-demo.pmnd.rs/) выбран как state manager, потому что это одна из самых минималистичных вариаций на тему стейт-менеджмента. Здесь можно было не использовать стор, но я захотела внедрить его как единый источник правды для всего приложения
+
+### Управление данными, фетчинг - TanStack Query
+
+[TanStack Query](https://tanstack.com/query/latest) используется для:
+- Кэширования и синхронизации серверных данных
+- Управления состоянием загрузки и ошибок
+- Автоматической инвалидации кэша
+- Оптимистичных обновлений
+
+## Архитектура проекта
+
+Проект организован по принципу Feature-Sliced Design:
+
+```
+src/
+├── features/          # Функциональные модули
+│   ├── form/         # Модуль формы регистрации
+│   └── table/        # Модуль таблицы данных
+└── app/             # Энтрипоинт в приложение
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Типы и компоненты каждой фичи лежат в соответствующей папке. Таким образом, в проекте не создаётся хаотичных хранилищ типов.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Запуск проекта
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Установка зависимостей
+pnpm install
+
+# Запуск сервера разработки
+pnpm dev
+
+# Запуск JSON Server для имитации API
+pnpm server
+
+# Сборка проекта
+pnpm build
 ```
